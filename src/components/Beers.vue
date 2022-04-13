@@ -2,12 +2,14 @@
   <div>
     <FilterBeers @alcoholFilter="setFilter" />
     <Searchbar @searchData="setSearch" />
+    <Pagination @nextPage="goToNext" @prevPage="goToPrev" />
     <v-container fluid grid-list-md class="mx-auto">
-      <v-row>
-        <Pagination @nextPage="goToNext" @prevPage="goToPrev" />
-
+      <div v-if="beers.length !== 0">
         <BeerCard :beers="this.beers" />
-      </v-row>
+      </div>
+      <div v-else class="warning--text text-center">
+        No match found. Please try again.
+      </div>
     </v-container>
   </div>
 </template>
@@ -72,8 +74,10 @@ export default {
       this.fetchBeers(this.currentPage);
     },
     goToPrev() {
+      if (this.currentPage === 1) {
+        return;
+      }
       this.currentPage -= 1;
-      console.log(currentPage);
       this.fetchBeers(this.currentPage);
     },
   },
