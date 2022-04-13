@@ -1,6 +1,6 @@
 <template>
   <div>
-    <BeerCard :beers="this.beers" />
+    <BeerCard :beers="this.beers" width="70%" />
   </div>
 </template>
 
