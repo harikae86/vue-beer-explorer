@@ -2,7 +2,7 @@
   <v-btn
     :x-large="$vuetify.breakpoint.lgOnly"
     :large="$vuetify.breakpoint.md"
-    :x-small="$vuetify.breakpoint.xsOnly"
+    :medium="$vuetify.breakpoint.xsOnly"
     color="accent"
     elevation="10"
     @click="onClick()"
@@ -25,3 +25,11 @@ export default {
   },
 };
 </script>
+
+<style>
+@media screen and (max-width: 600px) {
+  button {
+    font-size: 0.5rem !important;
+  }
+}
+</style>
