@@ -2,7 +2,7 @@
   <v-btn
     :x-large="$vuetify.breakpoint.lgOnly"
     :large="$vuetify.breakpoint.md"
-    :x-small="$vuetify.breakpoint.xsOnly"
+    :small="$vuetify.breakpoint.xsOnly"
     color="accent"
     elevation="10"
     @click="onClick()"
