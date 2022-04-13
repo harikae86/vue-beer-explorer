@@ -28,15 +28,15 @@ export default {
   name: "Pagination-comp",
   data() {
     return {
-      page: 1,
+      currentPage: 1,
     };
   },
   methods: {
     next() {
-      this.$emit("nextPage", this.page);
+      this.$emit("nextPage", this.currentPage);
     },
     previous() {
-      this.$emit("prevPage", this.page);
+      this.$emit("prevPage", this.currentPage);
     },
   },
 };

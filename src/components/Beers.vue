@@ -3,7 +3,7 @@
     <FilterBeers @alcoholFilter="setFilter" />
     <Searchbar @searchData="setSearch" />
     <Pagination @nextPage="goToNext" @prevPage="goToPrev" />
-    <v-container fluid grid-list-md class="mx-auto">
+    <v-container fluid col-sm-11 grid-list-md class="mx-auto">
       <div v-if="beers.length !== 0">
         <BeerCard :beers="this.beers" />
       </div>
