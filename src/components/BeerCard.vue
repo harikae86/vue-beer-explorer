@@ -23,7 +23,7 @@
             <v-expand-transition>
               <div
                 v-if="hover"
-                class="d-flex transition-fast-in-fast-out v-card--reveal white--text accent"
+                class="d-flex transition-ease-in-ease-out-1s v-card--reveal white--text accent"
                 style="height: 100%"
               >
                 {{ beer.description }}
