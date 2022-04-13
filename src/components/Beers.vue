@@ -1,9 +1,18 @@
 <template>
-  <div>
+  <div v-if="loading">
+    <div class="text-center">
+      <v-progress-circular
+        :size="50"
+        color="primary"
+        indeterminate
+      ></v-progress-circular>
+    </div>
+  </div>
+  <div v-else>
     <FilterBeers @alcoholFilter="setFilter" />
     <Searchbar @searchData="setSearch" />
     <Pagination @nextPage="goToNext" @prevPage="goToPrev" />
-    <v-container fluid grid-list-md class="mx-auto">
+    <v-container fluid col-sm-11 grid-list-md class="mx-auto">
       <div v-if="beers.length !== 0">
         <BeerCard :beers="this.beers" />
       </div>
@@ -31,10 +40,12 @@ export default {
       isAlcoholfree: false,
       currentPage: 1,
       hover: false,
+      loading: true,
     };
   },
   mounted() {
     this.fetchBeers(currentPage);
+    this.loading = true;
   },
   watch: {
     search: async function () {
@@ -54,7 +65,7 @@ export default {
         const response = await fetch(url);
         const data = await response.json();
         this.beers = data;
-        console.log(data);
+        this.loading = false;
       } catch (error) {
         console.log(error);
       }

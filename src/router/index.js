@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import BeerView from "../views/BeerView.vue";
 import RandomBeerView from "../views/RandomBeerView.vue";
+import BeerDetailedView from "../views/BeerDetailedView.vue";
 
 Vue.use(VueRouter);
 
@@ -21,6 +22,10 @@ const routes = [
     path: "/randomBeer",
     name: "randomBeer",
     component: RandomBeerView,
+  },
+  {
+    path: "/beers/:id",
+    component: BeerDetailedView,
   },
 ];
 
