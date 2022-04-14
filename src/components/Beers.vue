@@ -1,14 +1,5 @@
 <template>
-  <div v-if="loading">
-    <div class="text-center">
-      <v-progress-circular
-        :size="50"
-        color="primary"
-        indeterminate
-      ></v-progress-circular>
-    </div>
-  </div>
-  <div v-else>
+  <div>
     <FilterBeers @alcoholFilter="setFilter" />
     <Searchbar @searchData="setSearch" />
     <Pagination @nextPage="goToNext" @prevPage="goToPrev" />
