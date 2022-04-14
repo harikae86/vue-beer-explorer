@@ -8,10 +8,7 @@
       alt="background"
     />
     <div id="wrapper">
-      <div id="title" class="container h1">
-        Welcome to the world of Brewdog
-        <!-- <div class="overlay"></div> -->
-      </div>
+      <div id="title" class="container h1">Welcome to the world of Brewdog</div>
       <div id="button-wrapper">
         <Button btnText="Get me a beer" @btn-click="getRandomBeer" />
         <Button btnText="See all beers" @btn-click="goToBeers" />
@@ -50,8 +47,6 @@ export default {
   justify-content: space-evenly;
   align-items: space-between;
   height: 40%;
-  /* max-width: 100%; */
-  /* margin: 0 auto; */
   z-index: 1;
   top: 30%;
   left: 0;

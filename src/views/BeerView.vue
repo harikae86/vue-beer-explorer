@@ -30,28 +30,6 @@ export default {
   mounted() {
     this.fetchBeers(currentPage);
   },
-  watch: {
-    search: async function getSearchedBeers() {
-      const url = `https://api.punkapi.com/v2/beers?beer_name=${this.searchTerm}`;
-
-      if (this.searchTerm === "") {
-        await this.fetchBeers(1);
-      }
-
-      if (this.searchTerm !== "") {
-        try {
-          console.log(this.searchTerm);
-          const response = await fetch(url);
-          const data = await response.json();
-          this.beers = data;
-          console.log(data);
-        } catch (error) {
-          console.log(error);
-        }
-      }
-    },
-  },
-  computed: {},
   methods: {
     async fetchBeers(page) {
       const searchQuery = this.search !== "" ? `&beer_name=${this.search}` : "";
@@ -66,17 +44,6 @@ export default {
       } catch (error) {
         console.log(error);
       }
-    },
-
-    next() {
-      currentPage += 1;
-      console.log(currentPage);
-      this.fetchBeers(currentPage);
-    },
-    previous() {
-      currentPage -= 1;
-      console.log(currentPage);
-      this.fetchBeers(currentPage);
     },
   },
 };
